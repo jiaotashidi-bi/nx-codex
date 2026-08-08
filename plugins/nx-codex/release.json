@@ -1,0 +1,16 @@
+{
+  "releaseVersion": "1.0.0-rc.1",
+  "packageVersion": "1.0.0-rc.1+codex.rc1",
+  "pluginName": "nx-codex",
+  "protocolVersion": "1.0",
+  "bridgeVersion": "1.0.0-rc.1+codex.rc1",
+  "supportedNxOpenAssemblyVersion": "12.0.2.9",
+  "supportedAdapterId": "nx12.0.2.9",
+  "supportedAdapterContractId": "nx12.0.2.9-required-api-v1",
+  "unsupportedUnverifiedReleases": [
+    "2306",
+    "2312",
+    "2412",
+    "2512"
+  ]
+}

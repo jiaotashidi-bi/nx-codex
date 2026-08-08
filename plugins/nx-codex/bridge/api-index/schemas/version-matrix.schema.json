@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nx-codex.local/schemas/version-matrix.schema.json",
+  "title": "NX Codex NXOpen Version Matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "entries"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "required",
+          "adapterExpectation",
+          "verificationStatus",
+          "evidence"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+          "required": { "type": "boolean" },
+          "nxOpenDir": { "type": "string", "minLength": 1 },
+          "nxOpenDirEnv": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]+$" },
+          "expectedAssemblyVersion": {
+            "type": "string",
+            "pattern": "^[0-9]+(\\.[0-9]+){1,3}$"
+          },
+          "adapterExpectation": { "enum": ["verified", "unsupported"] },
+          "contractPath": { "type": "string", "minLength": 1 },
+          "verificationStatus": { "enum": ["verified", "unverified"] },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "apiIndex",
+              "requiredApiContract",
+              "typedRuntimeAdapter",
+              "strictFakeProtocol",
+              "liveReadOnlyHandshake",
+              "versionSpecificSmoke"
+            ],
+            "properties": {
+              "apiIndex": { "type": "boolean" },
+              "requiredApiContract": { "type": "boolean" },
+              "typedRuntimeAdapter": { "type": "boolean" },
+              "strictFakeProtocol": { "type": "boolean" },
+              "liveReadOnlyHandshake": { "type": "boolean" },
+              "versionSpecificSmoke": { "type": "boolean" }
+            }
+          }
+        },
+        "oneOf": [
+          { "required": ["nxOpenDir"], "not": { "required": ["nxOpenDirEnv"] } },
+          { "required": ["nxOpenDirEnv"], "not": { "required": ["nxOpenDir"] } }
+        ]
+      }
+    }
+  }
+}

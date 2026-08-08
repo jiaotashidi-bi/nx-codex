@@ -1,0 +1,31 @@
+{
+  "name": "nx-codex",
+  "version": "1.0.0-rc.1+codex.rc1",
+  "description": "Security-first Siemens NX control, bounded assembly/drafting inspection, and a protected-copy test drawing through a typed local MCP bridge.",
+  "author": {
+    "name": "NX Codex Contributors"
+  },
+  "homepage": "https://github.com/jiaotashidi-bi/nx-codex",
+  "repository": "https://github.com/jiaotashidi-bi/nx-codex",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "NX Codex",
+    "shortDescription": "Detect, plan, preflight, and verify safe Siemens NX work.",
+    "longDescription": "Connect Codex to a local Siemens NX session through a per-user Named Pipe, exact-version typed tools, read-only assembly/drafting/CAE/CAM active-license detection, bounded fail-closed assembly hierarchy and drafting sheet/view inspection, one fixed protected-copy test-sheet/base-view transaction, policy-restricted files, NX undo transactions, modeling preflight, and joint measurement, feature-tree, and screenshot verification.",
+    "developerName": "NX Codex Contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Detect assembly, drafting, CAE, and CAM capability without modifying NX.",
+      "Read a bounded assembly hierarchy only when an assembly license is already active, without loading or modifying components.",
+      "Read bounded drawing-sheet and drafting-view metadata only when a drafting license is already active, without opening, updating, or modifying drawings.",
+      "Create one fixed A4 test sheet and base view only in an exact saved and empty protected copy, verify NX's actual returned metadata, and never save automatically.",
+      "Report the exact NXOpen adapter and compatibility contract without modifying NX.",
+      "Plan and preflight a block, execute it, then jointly verify it without saving."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

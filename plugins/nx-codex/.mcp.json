@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "nx-codex": {
+      "command": "node",
+      "args": [
+        "__NX_CODEX_PLUGIN_ROOT__\\mcp\\dist\\mcp\\index.mjs"
+      ]
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nx-codex.local/schemas/protocol-v1.schema.json",
+  "title": "NX Codex bridge request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocolVersion",
+    "requestId",
+    "operation",
+    "token",
+    "deadlineUtc",
+    "arguments"
+  ],
+  "properties": {
+    "protocolVersion": {
+      "const": "1.0"
+    },
+    "requestId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "operation": {
+      "enum": [
+        "health",
+        "get_capabilities",
+        "get_session_state",
+        "get_assembly_capability",
+        "get_drafting_capability",
+        "get_cae_capability",
+        "get_cam_capability",
+        "get_assembly_structure",
+        "get_drafting_structure",
+        "create_test_drawing",
+        "preflight_modeling",
+        "get_feature_tree",
+        "capture_screenshot",
+        "new_part",
+        "open_part",
+        "save_as",
+        "close_part",
+        "create_block",
+        "create_rectangle_sketch",
+        "extrude_sketch",
+        "revolve_sketch",
+        "create_simple_through_hole",
+        "boolean_bodies",
+        "fillet_vertical_edges",
+        "measure_work_part",
+        "export_step",
+        "undo_transaction"
+      ]
+    },
+    "token": {
+      "type": "string",
+      "minLength": 32,
+      "maxLength": 256
+    },
+    "deadlineUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "arguments": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "originX": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "originY": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "originZ": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "profileWidth": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "profileHeight": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "centerX": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "centerY": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "planeZ": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "sketchFeatureJournalIdentifier": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "distance": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "axisDirection": {
+          "enum": [
+            "WCS_X",
+            "WCS_Y"
+          ]
+        },
+        "axisOriginX": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "axisOriginY": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "axisOriginZ": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "holeCenterX": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "holeCenterY": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "holeDiameter": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "booleanOperation": {
+          "enum": [
+            "UNITE",
+            "SUBTRACT",
+            "INTERSECT"
+          ]
+        },
+        "targetFeatureJournalIdentifier": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "toolFeatureJournalIdentifier": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "bodyFeatureJournalIdentifier": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "filletRadius": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "transactionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "filePath": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "partUnits": {
+          "enum": [
+            "Millimeters",
+            "Inches"
+          ]
+        },
+        "stepFormat": {
+          "enum": [
+            "AP203",
+            "AP214",
+            "AP242"
+          ]
+        },
+        "plannedOperation": {
+          "enum": [
+            "create_block",
+            "create_rectangle_sketch",
+            "extrude_sketch",
+            "revolve_sketch",
+            "create_simple_through_hole",
+            "boolean_bodies",
+            "fillet_vertical_edges"
+          ]
+        },
+        "maxDepth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32
+        },
+        "maxComponents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 128
+        },
+        "maxSheets": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "maxViews": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 128
+        }
+      }
+    }
+  }
+}

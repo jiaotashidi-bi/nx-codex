@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nx-codex.local/schemas/nxopen-api-index.schema.json",
+  "title": "NX Codex NXOpen API Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generator",
+    "memberFormat",
+    "assemblies",
+    "statistics",
+    "types"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "generator": { "type": "string", "minLength": 1 },
+    "memberFormat": { "const": "canonical-key" },
+    "assemblies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "fileName", "assemblyVersion", "fileVersion", "sha256"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "fileName": { "type": "string", "pattern": "^[^\\\\/]+\\.dll$" },
+          "assemblyVersion": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]+){1,3}$" },
+          "fileVersion": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+        }
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assemblyCount", "typeCount", "memberCount"],
+      "properties": {
+        "assemblyCount": { "type": "integer", "minimum": 1 },
+        "typeCount": { "type": "integer", "minimum": 1 },
+        "memberCount": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assembly", "namespace", "name", "fullName", "kind", "baseType", "interfaces", "members"],
+        "properties": {
+          "assembly": { "type": "string", "minLength": 1 },
+          "namespace": { "type": ["string", "null"] },
+          "name": { "type": "string", "minLength": 1 },
+          "fullName": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["class", "interface", "struct", "enum", "delegate"] },
+          "baseType": { "type": ["string", "null"] },
+          "interfaces": { "type": "array", "items": { "type": "string" } },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(constructor|method|property|field|event)\\|"
+            }
+          }
+        }
+      }
+    }
+  }
+}

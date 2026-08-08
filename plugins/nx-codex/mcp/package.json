@@ -1,0 +1,40 @@
+{
+  "name": "@nx-codex/mcp",
+  "version": "1.0.0-rc.1+codex.rc1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1",
+    "smoke:live": "node scripts/live-stage1-smoke.mjs",
+    "smoke:files": "node scripts/live-stage2-files-smoke.mjs",
+    "smoke:modeling": "node scripts/live-stage2b-modeling-smoke.mjs",
+    "smoke:revolve": "node scripts/live-stage2c-revolve-smoke.mjs",
+    "smoke:hole": "node scripts/live-stage2d-hole-smoke.mjs",
+    "smoke:boolean": "node scripts/live-stage2e-boolean-smoke.mjs",
+    "smoke:fillet": "node scripts/live-stage2f-fillet-smoke.mjs",
+    "smoke:compatibility": "node scripts/live-stage3-readonly-smoke.mjs",
+    "smoke:stage4": "node scripts/live-stage4-verification-smoke.mjs",
+    "smoke:assembly": "node scripts/live-stage5b-assembly-readonly-smoke.mjs",
+    "smoke:drafting": "node scripts/live-stage5c-drafting-readonly-smoke.mjs",
+    "smoke:drafting-create": "node scripts/live-stage5d-drafting-create-smoke.mjs",
+    "smoke:cae": "node scripts/live-stage5d-cae-readonly-smoke.mjs",
+    "test:faults": "node --import tsx --test test/fault-injection.test.ts",
+    "typecheck": "tsc --noEmit",
+    "verify:matrix": "powershell -NoProfile -ExecutionPolicy Bypass -File ../bridge/api-index/test-version-matrix.ps1 -MatrixPath ../bridge/api-index/version-matrix.json",
+    "test": "npm run build && node --import tsx --test test/*.test.ts",
+    "verify": "npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "@vercel/ncc": "0.44.1",
+    "tsx": "4.23.1",
+    "typescript": "5.9.3"
+  }
+}

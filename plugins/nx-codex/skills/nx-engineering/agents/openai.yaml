@@ -1,0 +1,4 @@
+interface:
+  display_name: "NX Engineering"
+  short_description: "Safely inspect and execute bounded Siemens NX work"
+  default_prompt: "Use $nx-engineering to inspect my current NX session and bounded assembly or drafting structure safely; create the fixed protected-copy test drawing only when explicitly requested; otherwise plan, preflight, execute only the requested supported operation, and verify every change without saving."

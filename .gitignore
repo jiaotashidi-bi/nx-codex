@@ -1,0 +1,16 @@
+plugins/nx-codex/mcp/node_modules/
+plugins/nx-codex/mcp/coverage/
+plugins/nx-codex/bridge/**/bin/
+plugins/nx-codex/bridge/**/obj/
+*.user
+*.suo
+*.log
+
+# Local NX parts, screenshots, and validation evidence are not source assets.
+NXFiles/
+
+# Reproducible release packages are kept as local/release assets, not commits.
+releases/
+
+# Temporary MCP probe output.
+_release-mcp-probe/

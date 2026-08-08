@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "entries": [
+    {
+      "id": "nx12.0.2.9",
+      "required": true,
+      "nxOpenDir": "D:\\Program Files\\Siemens\\NX 12.0\\NXBIN\\managed",
+      "expectedAssemblyVersion": "12.0.2.9",
+      "adapterExpectation": "verified",
+      "contractPath": "contracts/nx12.0.2.9-required-api.json",
+      "verificationStatus": "verified",
+      "evidence": {
+        "apiIndex": true,
+        "requiredApiContract": true,
+        "typedRuntimeAdapter": true,
+        "strictFakeProtocol": true,
+        "liveReadOnlyHandshake": true,
+        "versionSpecificSmoke": true
+      }
+    },
+    {
+      "id": "nx2306",
+      "required": false,
+      "nxOpenDirEnv": "NX_CODEX_NX2306_OPEN_DIR",
+      "adapterExpectation": "unsupported",
+      "verificationStatus": "unverified",
+      "evidence": {
+        "apiIndex": false,
+        "requiredApiContract": false,
+        "typedRuntimeAdapter": false,
+        "strictFakeProtocol": true,
+        "liveReadOnlyHandshake": false,
+        "versionSpecificSmoke": false
+      }
+    },
+    {
+      "id": "nx2312",
+      "required": false,
+      "nxOpenDirEnv": "NX_CODEX_NX2312_OPEN_DIR",
+      "adapterExpectation": "unsupported",
+      "verificationStatus": "unverified",
+      "evidence": {
+        "apiIndex": false,
+        "requiredApiContract": false,
+        "typedRuntimeAdapter": false,
+        "strictFakeProtocol": true,
+        "liveReadOnlyHandshake": false,
+        "versionSpecificSmoke": false
+      }
+    },
+    {
+      "id": "nx2412",
+      "required": false,
+      "nxOpenDirEnv": "NX_CODEX_NX2412_OPEN_DIR",
+      "adapterExpectation": "unsupported",
+      "verificationStatus": "unverified",
+      "evidence": {
+        "apiIndex": false,
+        "requiredApiContract": false,
+        "typedRuntimeAdapter": false,
+        "strictFakeProtocol": true,
+        "liveReadOnlyHandshake": false,
+        "versionSpecificSmoke": false
+      }
+    },
+    {
+      "id": "nx2512",
+      "required": false,
+      "nxOpenDirEnv": "NX_CODEX_NX2512_OPEN_DIR",
+      "adapterExpectation": "unsupported",
+      "verificationStatus": "unverified",
+      "evidence": {
+        "apiIndex": false,
+        "requiredApiContract": false,
+        "typedRuntimeAdapter": false,
+        "strictFakeProtocol": true,
+        "liveReadOnlyHandshake": false,
+        "versionSpecificSmoke": false
+      }
+    }
+  ]
+}
