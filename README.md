@@ -18,7 +18,9 @@ package, SHA-256, and full release checklist are available from the
 and documented in [`docs/RELEASE_1.0.0_RC1.md`](docs/RELEASE_1.0.0_RC1.md).
 
 NX Codex is a security-first Codex plugin for controlling Siemens NX through a
-small, typed MCP tool surface. The repository currently implements an MVP with:
+typed, policy-constrained MCP tool surface. The repository provides a
+`1.0.0 RC1` release for NXOpen `12.0.2.9`, validated in a live NX environment,
+with:
 
 - a Codex plugin and an `nx-engineering` skill;
 - a local stdio MCP server;

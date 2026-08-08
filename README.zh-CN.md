@@ -18,8 +18,9 @@ SHA-256 和完整发布检查清单可从
 获取，详细记录见
 [`docs/RELEASE_1.0.0_RC1.md`](docs/RELEASE_1.0.0_RC1.md)。
 
-NX Codex 是一个以安全为先的 Codex 插件，通过一组小型、强类型的 MCP
-工具控制 Siemens NX。当前仓库实现的是一个 MVP，包含：
+NX Codex 是一个以安全为先的 Codex 插件，通过一组强类型、受策略约束的
+MCP 工具控制 Siemens NX。当前仓库提供面向 NXOpen `12.0.2.9`、经过实机
+验证的 `1.0.0 RC1`，包含：
 
 - Codex 插件和 `nx-engineering` Skill；
 - 本地 stdio MCP Server；
