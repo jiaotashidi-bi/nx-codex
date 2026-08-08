@@ -1,5 +1,7 @@
 # NX Codex
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 The `1.0.0 RC1` release closeout, reproducible package procedure, SHA-256
 workflow, support matrix, known limitations, and local-only verification record
 are in [`docs/RELEASE_1.0.0_RC1.md`](docs/RELEASE_1.0.0_RC1.md).
@@ -10,9 +12,10 @@ RC1 formally supports only NXOpen `12.0.2.9` with adapter
 `nx12.0.2.9` and contract `nx12.0.2.9-required-api-v1`. NX 2306, 2312, 2412,
 and 2512 remain `unsupported/unverified` and fail closed for mutations.
 
-The RC1 package is local-only and unsigned. The verified package, SHA-256, and
-full release checklist are documented in
-[`docs/RELEASE_1.0.0_RC1.md`](docs/RELEASE_1.0.0_RC1.md).
+The RC1 package is published as an unsigned GitHub pre-release. The verified
+package, SHA-256, and full release checklist are available from the
+[`v1.0.0-rc.1` release](https://github.com/jiaotashidi-bi/nx-codex/releases/tag/v1.0.0-rc.1)
+and documented in [`docs/RELEASE_1.0.0_RC1.md`](docs/RELEASE_1.0.0_RC1.md).
 
 NX Codex is a security-first Codex plugin for controlling Siemens NX through a
 small, typed MCP tool surface. The repository currently implements an MVP with:
@@ -49,10 +52,10 @@ and the NX-hosted Bridge.
    ```
 
 2. In NX 12.0.2.9, load
-   `bridge/NXCodexBridge/bin/Release/NXCodexBridge.dll` with
+   `plugins/nx-codex/bridge/NXCodexBridge/bin/Release/NXCodexBridge.dll` with
    `File > Execute > NX Open`, or install it into an explicit user startup
-   directory using `bridge/install.ps1`. Exit NX normally before replacing a
-   loaded Bridge DLL.
+   directory using `plugins/nx-codex/bridge/install.ps1`. Exit NX normally
+   before replacing a loaded Bridge DLL.
 
 3. For file operations, configure an explicit allowed root:
 

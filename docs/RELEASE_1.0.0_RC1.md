@@ -1,6 +1,9 @@
 # NX Codex 1.0.0 RC1 release closeout
 
-Release status: local validation complete; no GitHub push, marketplace publication, or external distribution was performed.
+Release status: local validation complete; source and the unsigned RC1 package
+were subsequently published as the public GitHub pre-release
+[`v1.0.0-rc.1`](https://github.com/jiaotashidi-bi/nx-codex/releases/tag/v1.0.0-rc.1).
+No separate marketplace publication or other external distribution was performed.
 
 ## Version identity
 
@@ -144,7 +147,9 @@ previous cache directory and restoring the previous Bridge DLL after NX exits.
   NX process holds the existing DLL open.
 - API index/contract: exact `12.0.2.9` assemblies and strict contract retained;
   2306/2312/2412/2512 remain `unsupported`/`unverified`.
-- Publication: not performed.
+- Publication: source commit `fe619f9` and tag `v1.0.0-rc.1` were published to
+  GitHub after the local closeout completed. The ZIP and SHA-256 sidecar were
+  attached to the public pre-release.
 
 ## Known limitations
 
@@ -155,8 +160,8 @@ previous cache directory and restoring the previous Bridge DLL after NX exits.
 3. A Bridge DLL already loaded by NX locks the in-place build output. Build a
    new Bridge to an independent output directory and restart NX before loading
    it; do not force-close NX or discard unsaved work to release the lock.
-4. The RC1 package is unsigned and local-only. Signing, GitHub push, and
-   external publication are outside this closeout.
+4. The RC1 package is unsigned and published as a GitHub pre-release. Verify
+   the attached ZIP against the documented SHA-256 before installation.
 5. The dependency lock was refreshed with the available non-breaking fixes;
    `npm ci --ignore-scripts` and `npm audit` now report zero vulnerabilities.
 
@@ -172,4 +177,4 @@ previous cache directory and restoring the previous Bridge DLL after NX exits.
 - [x] Reproducible ZIP, per-file manifest, and SHA-256 sidecar generated.
 - [x] Fresh plugin cache and new MCP/Codex-task boundary verification completed.
 - [x] Install, uninstall, upgrade, rollback, support matrix, limitations, and checklist documented.
-- [x] GitHub push and external publication intentionally not performed.
+- [x] GitHub source push, tag, public pre-release, ZIP, and SHA-256 attachment completed after local validation.
